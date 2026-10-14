@@ -1,0 +1,1130 @@
+{
+  "rana": {
+    "completed": true,
+    "error": null,
+    "guard_stop": null,
+    "load_seconds": 12.609000000000378,
+    "fixture_sha256": "4380a93b373fd817683ae78ddaf432bbdf0e32982464bc4081cefd8110a9a922",
+    "scored_total": 24,
+    "scored_passed": 10,
+    "content_passed": 12,
+    "format_only_failures": [
+      "sorted_version",
+      "constraint_order"
+    ],
+    "failures": [
+      {
+        "name": "library_hours",
+        "text": "{\"hours\": 55}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "hours": 43
+          },
+          "actual": {
+            "hours": 55
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "overnight",
+        "text": "{\"day\":\"月曜\",\"time\":\"02:25\"}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "day": "火曜",
+            "time": "02:25"
+          },
+          "actual": {
+            "day": "月曜",
+            "time": "02:25"
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "invoice",
+        "text": "{\"yen\": 14720}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "yen": 12608
+          },
+          "actual": {
+            "yen": 14720
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "tax_rounding",
+        "text": "{\"yen\": 1100}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "yen": 1767
+          },
+          "actual": {
+            "yen": 1100
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "speed_ratio",
+        "text": "{\n  \"ratio\": 1.6\n}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "ratio": 1
+          },
+          "actual": {
+            "ratio": 1.6
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "weighted_mean",
+        "text": "{\"mean\": 56.0}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "mean": 74
+          },
+          "actual": {
+            "mean": 56.0
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "probability",
+        "text": "{\"numerator\": 1, \"denominator\": 5}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "numerator": 3,
+            "denominator": 10
+          },
+          "actual": {
+            "numerator": 1,
+            "denominator": 5
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "latest_orders",
+        "text": "{\"total\":3400,\"ids\":[\"A\",\"B\"]}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "total": 2200,
+            "ids": [
+              "B"
+            ]
+          },
+          "actual": {
+            "total": 3400,
+            "ids": [
+              "A",
+              "B"
+            ]
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "negation_filter",
+        "text": "```json\n[\"丁\"]\n```",
+        "grade": {
+          "passed": false,
+          "expected": [
+            "乙",
+            "丁"
+          ],
+          "reason": "not plain valid JSON: Expecting value: line 1 column 1 (char 0)"
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "sorted_version",
+        "text": "```json\n[\"1.2.9\", \"1.9.0\", \"1.10.0\", \"2.0.0\"]\n```",
+        "grade": {
+          "passed": false,
+          "expected": [
+            "1.2.9",
+            "1.9.0",
+            "1.10.0",
+            "2.0.0"
+          ],
+          "reason": "not plain valid JSON: Expecting value: line 1 column 1 (char 0)"
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "constraint_order",
+        "text": "```json\n[\"B\", \"A\", \"D\", \"C\", \"E\", \"F\"]\n```",
+        "grade": {
+          "passed": false,
+          "expected": [
+            "B",
+            "A",
+            "D",
+            "C",
+            "E",
+            "F"
+          ],
+          "reason": "not plain valid JSON: Expecting value: line 1 column 1 (char 0)"
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "truth_teller",
+        "text": "{\n  \"A\": \"嘘つき\",\n  \"B\": \"嘘つき\"\n}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "A": "正直者",
+            "B": "嘘つき"
+          },
+          "actual": {
+            "A": "嘘つき",
+            "B": "嘘つき"
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "merge_intervals",
+        "text": "def merge_intervals(intervals):\n    valid = []\n    for start, end in intervals:\n        if start > end:\n            raise ValueError(\"Invalid interval: start > end\")\n        if start < end:\n            valid.append((start, end))\n    \n    if not valid:\n        return []\n    \n    valid.sort()\n    merged = [valid[0]]\n    \n    for current in valid[1:]:\n        last = merged[-1]\n        if current[0] > last[1]:\n            merged.append(current)\n        else:\n            merged[-1] = (last[0], max(last[1], current[1]))\n            \n    return merged",
+        "grade": {
+          "passed": false,
+          "reason": "Traceback (most recent call last):\n  File \"<string>\", line 7, in <module>\n  File \"<string>\", line 5, in <module>\nAssertionError\n",
+          "code": "def merge_intervals(intervals):\n    valid = []\n    for start, end in intervals:\n        if start > end:\n            raise ValueError(\"Invalid interval: start > end\")\n        if start < end:\n            valid.append((start, end))\n    \n    if not valid:\n        return []\n    \n    valid.sort()\n    merged = [valid[0]]\n    \n    for current in valid[1:]:\n        last = merged[-1]\n        if current[0] > last[1]:\n            merged.append(current)\n        else:\n            merged[-1] = (last[0], max(last[1], current[1]))\n            \n    return merged"
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "parse_duration",
+        "text": "def parse_duration(text):\n    if not isinstance(text, str):\n        raise ValueError(\"Input must be a string\")\n    stripped = text.strip()\n    if not stripped:\n        raise ValueError(\"Empty string\")\n    if ':' not in stripped:\n        raise ValueError(\"Missing colon\")\n    parts = stripped.split(':')\n    if len(parts) != 2:\n        raise ValueError(\"Invalid format\")\n    minutes_str, seconds_str = parts\n    if not minutes_str.isdigit() or not seconds_str.isdigit():\n        raise ValueError(\"Non-digit characters found\")\n    if len(seconds_str) != 2:\n        raise ValueError(\"Seconds must be exactly 2 digits\")\n    minutes = int(minutes_str)\n    seconds = int(seconds_str)\n    if seconds > 59:\n        raise ValueError(\"Seconds out of range\")\n    return minutes * 60 + seconds",
+        "grade": {
+          "passed": false,
+          "reason": "Traceback (most recent call last):\n  File \"<string>\", line 7, in <module>\n  File \"<string>\", line 8, in <module>\nAssertionError: invalid accepted: ' 1:20'\n",
+          "code": "def parse_duration(text):\n    if not isinstance(text, str):\n        raise ValueError(\"Input must be a string\")\n    stripped = text.strip()\n    if not stripped:\n        raise ValueError(\"Empty string\")\n    if ':' not in stripped:\n        raise ValueError(\"Missing colon\")\n    parts = stripped.split(':')\n    if len(parts) != 2:\n        raise ValueError(\"Invalid format\")\n    minutes_str, seconds_str = parts\n    if not minutes_str.isdigit() or not seconds_str.isdigit():\n        raise ValueError(\"Non-digit characters found\")\n    if len(seconds_str) != 2:\n        raise ValueError(\"Seconds must be exactly 2 digits\")\n    minutes = int(minutes_str)\n    seconds = int(seconds_str)\n    if seconds > 59:\n        raise ValueError(\"Seconds out of range\")\n    return minutes * 60 + seconds"
+        },
+        "finish": "stop"
+      }
+    ],
+    "baseline": {
+      "samples": 13,
+      "host_mean_percent": 2.476923076923077,
+      "owned_mean_percent_of_pc": 0.0,
+      "available_ram_min_gib": 24.67684555053711,
+      "available_ram_median_gib": 24.680713653564453,
+      "owned_rss_peak_gib": 0.0,
+      "owned_private_peak_gib": 0.0,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 0.920684814453125,
+          "used_median_gib": 0.910980224609375,
+          "free_min_gib": 11.019744873046875,
+          "utilization_mean_percent": 1.0769230769230769,
+          "utilization_peak_percent": 2,
+          "power_mean_w": 7.143923076923077,
+          "power_peak_w": 8.024,
+          "temperature_peak_c": 33.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 5608.7692307692305,
+          "pcie_tx_mean_kb_s": 4779.384615384615
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 0.1475830078125,
+          "used_median_gib": 0.1475830078125,
+          "free_min_gib": 31.8524169921875,
+          "utilization_mean_percent": 0,
+          "utilization_peak_percent": 0,
+          "power_mean_w": 24.88646153846154,
+          "power_peak_w": 24.935,
+          "temperature_peak_c": 31.0,
+          "hbm_temperature_peak_c": 31,
+          "pcie_rx_mean_kb_s": 221.07692307692307,
+          "pcie_tx_mean_kb_s": 142.07692307692307
+        }
+      }
+    },
+    "loaded_idle": {
+      "samples": 8,
+      "host_mean_percent": 2.4625,
+      "owned_mean_percent_of_pc": 0.22890625,
+      "available_ram_min_gib": 21.86431884765625,
+      "available_ram_median_gib": 21.87196922302246,
+      "owned_rss_peak_gib": 2.797496795654297,
+      "owned_private_peak_gib": 3.995067596435547,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 0.909942626953125,
+          "used_median_gib": 0.909942626953125,
+          "free_min_gib": 11.030487060546875,
+          "utilization_mean_percent": 1.375,
+          "utilization_peak_percent": 2,
+          "power_mean_w": 7.154625,
+          "power_peak_w": 8.042,
+          "temperature_peak_c": 33.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 5826.875,
+          "pcie_tx_mean_kb_s": 4937.625
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 21.02508544921875,
+          "used_median_gib": 21.02508544921875,
+          "free_min_gib": 10.97491455078125,
+          "utilization_mean_percent": 7.625,
+          "utilization_peak_percent": 61,
+          "power_mean_w": 41.3025,
+          "power_peak_w": 41.392,
+          "temperature_peak_c": 36.0,
+          "hbm_temperature_peak_c": 34,
+          "pcie_rx_mean_kb_s": 36.375,
+          "pcie_tx_mean_kb_s": 6.0
+        }
+      }
+    },
+    "active": {
+      "samples": 161,
+      "host_mean_percent": 7.796894409937888,
+      "owned_mean_percent_of_pc": 4.383423913043479,
+      "available_ram_min_gib": 21.617481231689453,
+      "available_ram_median_gib": 21.79682159423828,
+      "owned_rss_peak_gib": 2.990894317626953,
+      "owned_private_peak_gib": 4.3173828125,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 0.926910400390625,
+          "used_median_gib": 0.911041259765625,
+          "free_min_gib": 11.013519287109375,
+          "utilization_mean_percent": 1.186335403726708,
+          "utilization_peak_percent": 2,
+          "power_mean_w": 9.343329192546584,
+          "power_peak_w": 10.628,
+          "temperature_peak_c": 33.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 5325.04347826087,
+          "pcie_tx_mean_kb_s": 4984.291925465838
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 21.748046875,
+          "used_median_gib": 21.748046875,
+          "free_min_gib": 10.251953125,
+          "utilization_mean_percent": 97.24844720496894,
+          "utilization_peak_percent": 100,
+          "power_mean_w": 225.6115900621118,
+          "power_peak_w": 257.993,
+          "temperature_peak_c": 60.0,
+          "hbm_temperature_peak_c": 66,
+          "pcie_rx_mean_kb_s": 106106.98136645963,
+          "pcie_tx_mean_kb_s": 136359.80124223602
+        }
+      }
+    },
+    "speed_resources": {
+      "samples": 52,
+      "host_mean_percent": 9.301923076923076,
+      "owned_mean_percent_of_pc": 5.694230769230769,
+      "available_ram_min_gib": 21.668319702148438,
+      "available_ram_median_gib": 21.797040939331055,
+      "owned_rss_peak_gib": 2.876483917236328,
+      "owned_private_peak_gib": 4.081295013427734,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 0.926910400390625,
+          "used_median_gib": 0.909942626953125,
+          "free_min_gib": 11.013519287109375,
+          "utilization_mean_percent": 1.25,
+          "utilization_peak_percent": 2,
+          "power_mean_w": 9.53998076923077,
+          "power_peak_w": 10.294,
+          "temperature_peak_c": 33.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 5276.326923076923,
+          "pcie_tx_mean_kb_s": 5039.365384615385
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 21.748046875,
+          "used_median_gib": 21.748046875,
+          "free_min_gib": 10.251953125,
+          "utilization_mean_percent": 96.75,
+          "utilization_peak_percent": 100,
+          "power_mean_w": 227.51778846153846,
+          "power_peak_w": 245.855,
+          "temperature_peak_c": 57.0,
+          "hbm_temperature_peak_c": 64,
+          "pcie_rx_mean_kb_s": 64852.730769230766,
+          "pcie_tx_mean_kb_s": 145158.03846153847
+        }
+      }
+    },
+    "all_phases_min_available_ram_gib": 21.455860137939453,
+    "all_phases_peak_core_c": 60.0,
+    "all_phases_peak_hbm_c": 66,
+    "cooling_stale_samples": 0,
+    "speed": {
+      "japanese": {
+        "n": 3,
+        "decode_tps_median": 41.0483986375795,
+        "ttft_s_median": 0.467,
+        "total_s_median": 6.679,
+        "tokens": [
+          256,
+          256,
+          256
+        ],
+        "finishes": [
+          "length",
+          "length",
+          "length"
+        ],
+        "characters_per_second_median": 70.66926186554873,
+        "host_disk_read_median_gib": 6.4849853515625e-05,
+        "reused_tokens": [
+          0,
+          0,
+          0
+        ],
+        "drafts_offered": 1024,
+        "drafts_accepted": 421
+      },
+      "python": {
+        "n": 3,
+        "decode_tps_median": 63.12213985539337,
+        "ttft_s_median": 0.294,
+        "total_s_median": 4.337,
+        "tokens": [
+          256,
+          256,
+          256
+        ],
+        "finishes": [
+          "length",
+          "length",
+          "length"
+        ],
+        "characters_per_second_median": 244.17800322803782,
+        "host_disk_read_median_gib": 0.000873565673828125,
+        "reused_tokens": [
+          0,
+          0,
+          0
+        ],
+        "drafts_offered": 669,
+        "drafts_accepted": 541
+      }
+    },
+    "speed_mixed_decode_tps_median": 52.839620717682266,
+    "speed_mixed_ttft_s_median": 0.382,
+    "speed_disk_read_median_gib": 0.0004494190216064453,
+    "quality_elapsed_total_s": 22.888,
+    "quality_by_category": {
+      "code": {
+        "passed": 2,
+        "total": 4
+      },
+      "extraction": {
+        "passed": 2,
+        "total": 5
+      },
+      "instructions": {
+        "passed": 2,
+        "total": 2
+      },
+      "logic": {
+        "passed": 3,
+        "total": 5
+      },
+      "numeric": {
+        "passed": 1,
+        "total": 8
+      }
+    },
+    "long": [
+      {
+        "name": "needle-4096",
+        "prompt_tokens": 3908,
+        "read_tokens": 3908,
+        "reused_tokens": 0,
+        "prompt_tps": 724.2154826447727,
+        "ttft_s": 5.421,
+        "total_s": 5.537,
+        "passed": true,
+        "text": "EMBER-2746",
+        "host_disk_read_gib": 0.000213623046875
+      },
+      {
+        "name": "needle-16384",
+        "prompt_tokens": 16183,
+        "read_tokens": 16183,
+        "reused_tokens": 0,
+        "prompt_tps": 680.4336577814356,
+        "ttft_s": 23.808,
+        "total_s": 23.929,
+        "passed": true,
+        "text": "EMBER-2746",
+        "host_disk_read_gib": 0.000820159912109375
+      }
+    ],
+    "review": [
+      {
+        "name": "japanese_explanation",
+        "characters": 579,
+        "total_s": 8.508,
+        "decode_tps": 40.45788271586479,
+        "finish": "stop",
+        "text": "家庭用PCでAIモデルを動かす際、VRAM（ビデオメモリ）にモデル全体が収まるかどうかは、体感速度と使い勝手の分岐点です。VRAMに完全に収まる場合、GPUがデータを直接処理するため、応答が速く安定します。一方、VRAM容量を超えて一部をRAMやSSDから読み込む方式では、データがGPUとメモリ間を頻繁にやり取りするため、処理速度が落ちる傾向があります。特にSSDからの読み込みはRAMより遅いため、文章生成の初回表示や連続応答時に待ち時間を感じやすくなります。\n\nただし、具体的な速度はGPUの型番、メモリ帯域幅、モデルサイズ、量子化レベルなどによって大きく変動するため、「必ず○倍遅い」と断定はできません。重要なのは、自分のPCの他の用途との両立です。VRAMをAIに使い切ると、ゲームや動画編集、ブラウザのタブ多数開きなど、GPUを使う他のタスクが重くなったり、カクついたりします。RAMやSSDにオフロードする方式は、VRAM使用量を減らせるため、他のアプリとの併用には有利ですが、その分AIの応答は遅くなります。\n\n初心者はまず、よく使うモデルがVRAMに収まるか確認し、収まらなければRAMオフロードで試すのがおすすめです。速度より安定性や同時実行性を重視するなら後者、AIの応答速度を最優先するなら前者を選ぶと、用途に合った使い方ができます。"
+      },
+      {
+        "name": "japanese_plan",
+        "characters": 526,
+        "total_s": 8.295,
+        "decode_tps": 39.3502639241554,
+        "finish": "stop",
+        "text": "夜間のVRゲームとAI質問の同時利用を想定し、2枚のGPU構成では、VR描画を1枚、AI推論をもう1枚に専任させるのが基本方針です。これにより、VRのフレームレート低下を最小限に抑えつつ、AIの応答速度も確保できます。\n\nGPU間通信は、NVIDIA製品ならNVLinkで帯域を確保し、PCIe 4.0/5.0スロットに配置することでボトルネックを回避します。CPUとRAMは両GPUで共有するため、VRのシーン読み込みとAIのモデルロードが重なる瞬間に負荷が集中します。特にRAM帯域幅が狭い場合、VRのテクスチャ読み込みが遅延し、AIの応答も遅くなる可能性があります。\n\nただし、以下の点は実測が必要です。1つ目は、VRゲームの特定シーン（大量の粒子効果など）と、長文のAI生成が同時発生した際のCPUコア占有率です。2つ目は、RAM容量が16GB以下の場合、VRとAIモデルのメモリ競合によるスワップ発生頻度です。3つ目は、NVLink非対応の場合のPCIe通信遅延が、AIのトークン生成速度に与える具体的な影響です。まずは負荷の高いVRシーンでAI質問を投げ、フレームタイムと応答時間を計測し、必要に応じてAIモデルのサイズを調整してください。"
+      }
+    ]
+  },
+  "flash": {
+    "completed": true,
+    "error": null,
+    "guard_stop": null,
+    "load_seconds": 45.46900000000096,
+    "fixture_sha256": "4380a93b373fd817683ae78ddaf432bbdf0e32982464bc4081cefd8110a9a922",
+    "scored_total": 24,
+    "scored_passed": 14,
+    "content_passed": 15,
+    "format_only_failures": [
+      "negation_filter"
+    ],
+    "failures": [
+      {
+        "name": "library_hours",
+        "text": "```json\n{\"hours\": 38}\n```",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "hours": 43
+          },
+          "reason": "not plain valid JSON: Expecting value: line 1 column 1 (char 0)"
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "invoice",
+        "text": "{\"yen\":12320}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "yen": 12608
+          },
+          "actual": {
+            "yen": 12320
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "tax_rounding",
+        "text": "{\"yen\": 1303}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "yen": 1767
+          },
+          "actual": {
+            "yen": 1303
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "speed_ratio",
+        "text": "{\"ratio\": 2.5}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "ratio": 1
+          },
+          "actual": {
+            "ratio": 2.5
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "weighted_mean",
+        "text": "{\"mean\":76}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "mean": 74
+          },
+          "actual": {
+            "mean": 76
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "latest_orders",
+        "text": "{\"total\":5800,\"ids\":[\"A\",\"B\"]}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "total": 2200,
+            "ids": [
+              "B"
+            ]
+          },
+          "actual": {
+            "total": 5800,
+            "ids": [
+              "A",
+              "B"
+            ]
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "negation_filter",
+        "text": "```json\n[\"乙\", \"丁\"]\n```",
+        "grade": {
+          "passed": false,
+          "expected": [
+            "乙",
+            "丁"
+          ],
+          "reason": "not plain valid JSON: Expecting value: line 1 column 1 (char 0)"
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "null_logic",
+        "text": "[1, 3]",
+        "grade": {
+          "passed": false,
+          "expected": [],
+          "actual": [
+            1,
+            3
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "truth_teller",
+        "text": "{\"A\":\"正直者\",\"B\":\"正直者\"}",
+        "grade": {
+          "passed": false,
+          "expected": {
+            "A": "正直者",
+            "B": "嘘つき"
+          },
+          "actual": {
+            "A": "正直者",
+            "B": "正直者"
+          }
+        },
+        "finish": "stop"
+      },
+      {
+        "name": "parse_duration",
+        "text": "```python\ndef parse_duration(text):\n    if not isinstance(text, str):\n        raise ValueError(\"Invalid input\")\n    if text != text.strip():\n        raise ValueError(\"Invalid input\")\n    if not text:\n        raise ValueError(\"Invalid input\")\n    parts = text.split(':')\n    if len(parts) != 2:\n        raise ValueError(\"Invalid input\")\n    minutes_str, seconds_str = parts\n    if not minutes_str or not seconds_str:\n        raise ValueError(\"Invalid input\")\n    if not minutes_str.isdigit():\n        raise ValueError(\"Invalid input\")\n    if not seconds_str.isdigit():\n        raise ValueError(\"Invalid input\")\n    if len(seconds_str) != 2:\n        raise ValueError(\"Invalid input\")\n    if len(minutes_str) < 1:\n        raise ValueError(\"Invalid input\")\n    minutes = int(minutes_str)\n    seconds = int(seconds_str)\n    if seconds < 0 or seconds > 59:\n        raise ValueError(\"Invalid input\")\n    return minutes * 60 + seconds\n```",
+        "grade": {
+          "passed": false,
+          "reason": "Traceback (most recent call last):\n  File \"<string>\", line 7, in <module>\n  File \"<string>\", line 8, in <module>\nAssertionError: invalid accepted: '\\u0661:20'\n",
+          "code": "def parse_duration(text):\n    if not isinstance(text, str):\n        raise ValueError(\"Invalid input\")\n    if text != text.strip():\n        raise ValueError(\"Invalid input\")\n    if not text:\n        raise ValueError(\"Invalid input\")\n    parts = text.split(':')\n    if len(parts) != 2:\n        raise ValueError(\"Invalid input\")\n    minutes_str, seconds_str = parts\n    if not minutes_str or not seconds_str:\n        raise ValueError(\"Invalid input\")\n    if not minutes_str.isdigit():\n        raise ValueError(\"Invalid input\")\n    if not seconds_str.isdigit():\n        raise ValueError(\"Invalid input\")\n    if len(seconds_str) != 2:\n        raise ValueError(\"Invalid input\")\n    if len(minutes_str) < 1:\n        raise ValueError(\"Invalid input\")\n    minutes = int(minutes_str)\n    seconds = int(seconds_str)\n    if seconds < 0 or seconds > 59:\n        raise ValueError(\"Invalid input\")\n    return minutes * 60 + seconds\n"
+        },
+        "finish": "stop"
+      }
+    ],
+    "baseline": {
+      "samples": 13,
+      "host_mean_percent": 3.1307692307692307,
+      "owned_mean_percent_of_pc": 0.0,
+      "available_ram_min_gib": 24.66714859008789,
+      "available_ram_median_gib": 24.671409606933594,
+      "owned_rss_peak_gib": 0.0,
+      "owned_private_peak_gib": 0.0,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 0.920867919921875,
+          "used_median_gib": 0.909271240234375,
+          "free_min_gib": 11.019561767578125,
+          "utilization_mean_percent": 1.2307692307692308,
+          "utilization_peak_percent": 2,
+          "power_mean_w": 7.068538461538462,
+          "power_peak_w": 7.867,
+          "temperature_peak_c": 33.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 5739.615384615385,
+          "pcie_tx_mean_kb_s": 4141.923076923077
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 0.1475830078125,
+          "used_median_gib": 0.1475830078125,
+          "free_min_gib": 31.8524169921875,
+          "utilization_mean_percent": 0,
+          "utilization_peak_percent": 0,
+          "power_mean_w": 24.997615384615383,
+          "power_peak_w": 25.032,
+          "temperature_peak_c": 33.0,
+          "hbm_temperature_peak_c": 33,
+          "pcie_rx_mean_kb_s": 179.84615384615384,
+          "pcie_tx_mean_kb_s": 131.15384615384616
+        }
+      }
+    },
+    "loaded_idle": {
+      "samples": 8,
+      "host_mean_percent": 6.2625,
+      "owned_mean_percent_of_pc": 4.29140625,
+      "available_ram_min_gib": 8.432422637939453,
+      "available_ram_median_gib": 8.437435150146484,
+      "owned_rss_peak_gib": 15.214595794677734,
+      "owned_private_peak_gib": 26.967369079589844,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 10.862064361572266,
+          "used_median_gib": 10.861820220947266,
+          "free_min_gib": 1.0783653259277344,
+          "utilization_mean_percent": 20.875,
+          "utilization_peak_percent": 81,
+          "power_mean_w": 41.5135,
+          "power_peak_w": 67.211,
+          "temperature_peak_c": 38.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 5319.75,
+          "pcie_tx_mean_kb_s": 5169.875
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 31.4600830078125,
+          "used_median_gib": 31.4600830078125,
+          "free_min_gib": 0.5399169921875,
+          "utilization_mean_percent": 1.25,
+          "utilization_peak_percent": 10,
+          "power_mean_w": 36.004125,
+          "power_peak_w": 36.245,
+          "temperature_peak_c": 34.0,
+          "hbm_temperature_peak_c": 33,
+          "pcie_rx_mean_kb_s": 66.75,
+          "pcie_tx_mean_kb_s": 164.375
+        }
+      }
+    },
+    "active": {
+      "samples": 183,
+      "host_mean_percent": 60.9327868852459,
+      "owned_mean_percent_of_pc": 50.6843237704918,
+      "available_ram_min_gib": 7.2900390625,
+      "available_ram_median_gib": 7.687446594238281,
+      "owned_rss_peak_gib": 16.267654418945312,
+      "owned_private_peak_gib": 27.898853302001953,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 10.954715728759766,
+          "used_median_gib": 10.938236236572266,
+          "free_min_gib": 0.9857139587402344,
+          "utilization_mean_percent": 57.622950819672134,
+          "utilization_peak_percent": 100,
+          "power_mean_w": 88.65377595628415,
+          "power_peak_w": 142.911,
+          "temperature_peak_c": 51.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 2717357.3333333335,
+          "pcie_tx_mean_kb_s": 445169.5027322404
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 31.4874267578125,
+          "used_median_gib": 31.4757080078125,
+          "free_min_gib": 0.5125732421875,
+          "utilization_mean_percent": 27.918032786885245,
+          "utilization_peak_percent": 46,
+          "power_mean_w": 63.62184699453552,
+          "power_peak_w": 129.522,
+          "temperature_peak_c": 40.0,
+          "hbm_temperature_peak_c": 37,
+          "pcie_rx_mean_kb_s": 143422.10928961748,
+          "pcie_tx_mean_kb_s": 321906.5355191257
+        }
+      }
+    },
+    "speed_resources": {
+      "samples": 45,
+      "host_mean_percent": 50.364444444444445,
+      "owned_mean_percent_of_pc": 46.06930555555556,
+      "available_ram_min_gib": 8.270919799804688,
+      "available_ram_median_gib": 8.413188934326172,
+      "owned_rss_peak_gib": 15.423332214355469,
+      "owned_private_peak_gib": 27.025020599365234,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 10.903812408447266,
+          "used_median_gib": 10.887638092041016,
+          "free_min_gib": 1.0366172790527344,
+          "utilization_mean_percent": 93.28888888888889,
+          "utilization_peak_percent": 100,
+          "power_mean_w": 108.06871111111111,
+          "power_peak_w": 127.235,
+          "temperature_peak_c": 48.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 1129887.0222222223,
+          "pcie_tx_mean_kb_s": 247786.95555555556
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 31.4600830078125,
+          "used_median_gib": 31.4600830078125,
+          "free_min_gib": 0.5399169921875,
+          "utilization_mean_percent": 23.977777777777778,
+          "utilization_peak_percent": 33,
+          "power_mean_w": 57.09842222222222,
+          "power_peak_w": 76.384,
+          "temperature_peak_c": 37.0,
+          "hbm_temperature_peak_c": 36,
+          "pcie_rx_mean_kb_s": 149420.0888888889,
+          "pcie_tx_mean_kb_s": 511386.2
+        }
+      }
+    },
+    "all_phases_min_available_ram_gib": 7.2900390625,
+    "all_phases_peak_core_c": 51.0,
+    "all_phases_peak_hbm_c": 37,
+    "cooling_stale_samples": 0,
+    "speed": {
+      "japanese": {
+        "n": 3,
+        "decode_tps_median": 59.2,
+        "ttft_s_median": 0.832,
+        "total_s_median": 5.183,
+        "tokens": [
+          256,
+          256,
+          256
+        ],
+        "finishes": [
+          "length",
+          "length",
+          "length"
+        ],
+        "characters_per_second_median": 95.89041095890411,
+        "host_disk_read_median_gib": 2.974395751953125,
+        "reused_tokens": [
+          0,
+          0,
+          0
+        ],
+        "drafts_offered": 572,
+        "drafts_accepted": 362
+      },
+      "python": {
+        "n": 3,
+        "decode_tps_median": 71.8,
+        "ttft_s_median": 0.663,
+        "total_s_median": 4.204,
+        "tokens": [
+          256,
+          256,
+          256
+        ],
+        "finishes": [
+          "length",
+          "length",
+          "length"
+        ],
+        "characters_per_second_median": 251.52774382791492,
+        "host_disk_read_median_gib": 2.724376678466797,
+        "reused_tokens": [
+          0,
+          0,
+          0
+        ],
+        "drafts_offered": 664,
+        "drafts_accepted": 526
+      }
+    },
+    "speed_mixed_decode_tps_median": 62.1,
+    "speed_mixed_ttft_s_median": 0.759,
+    "speed_disk_read_median_gib": 2.849386215209961,
+    "quality_elapsed_total_s": 27.872,
+    "quality_by_category": {
+      "code": {
+        "passed": 3,
+        "total": 4
+      },
+      "extraction": {
+        "passed": 3,
+        "total": 5
+      },
+      "instructions": {
+        "passed": 2,
+        "total": 2
+      },
+      "logic": {
+        "passed": 3,
+        "total": 5
+      },
+      "numeric": {
+        "passed": 3,
+        "total": 8
+      }
+    },
+    "long": [
+      {
+        "name": "needle-4096",
+        "prompt_tokens": 3908,
+        "read_tokens": 3908,
+        "reused_tokens": 0,
+        "prompt_tps": 407.0,
+        "ttft_s": 9.624,
+        "total_s": 9.813,
+        "passed": true,
+        "text": "EMBER-2746",
+        "host_disk_read_gib": 21.94393491744995
+      },
+      {
+        "name": "needle-16384",
+        "prompt_tokens": 16183,
+        "read_tokens": 16183,
+        "reused_tokens": 0,
+        "prompt_tps": 424.5,
+        "ttft_s": 38.154,
+        "total_s": 38.289,
+        "passed": true,
+        "text": "EMBER-2746",
+        "host_disk_read_gib": 93.74267148971558
+      }
+    ],
+    "review": [
+      {
+        "name": "japanese_explanation",
+        "characters": 565,
+        "total_s": 6.421,
+        "decode_tps": 56.4,
+        "finish": "stop",
+        "text": "家庭用PCでAIモデルを実行する際、VRAM（ビデオメモリ）にモデル全体を収められるかどうかが、動作の安定性と速度を大きく左右します。VRAMにモデル全体が入る場合、データがGPU内部で高速にやり取りされるため、推論速度は非常に速く、応答も滑らかになります。これはゲームや動画編集など、GPUを多用する他の用途と競合しやすい状態ですが、AI処理自体は最も効率的に行えます。\n\n一方、モデルがVRAMに収まらず、一部をシステムRAMやSSDから読み込む場合、データ転送のボトルネックが生じます。特にSSD経由の場合は速度が大幅に低下し、応答が重くなる傾向があります。RAM経由であればSSDより速いものの、VRAM内での処理には及びません。この場合、GPUの負荷は軽減されるため、他のアプリケーションとの両立がしやすくなる可能性がありますが、AIの動作自体は遅くなります。\n\n重要なのは、具体的な速度差はモデルのサイズ、GPUの性能、メモリ帯域幅など多くの要因に依存するため、一概に「何倍速い」と断言できない点です。初心者は、まず自分のPCのVRAM容量を確認し、モデルの推奨要件と比較することが重要です。VRAM不足時は、モデルの量子化（圧縮）やオフロード機能を活用することで、速度低下を許容しつつ実行可能にする選択肢もあります。"
+      },
+      {
+        "name": "japanese_plan",
+        "characters": 476,
+        "total_s": 4.685,
+        "decode_tps": 67.2,
+        "finish": "stop",
+        "text": "夜間のVRゲームと日本語AI質問の同時利用において、GPU2枚構成のPCでは役割分担が鍵となります。VRゲームは視覚処理のためGPU1を専有させ、AI推論はGPU2に割り当てるのが理想的です。これにより、VRのフレームレート低下を防ぎつつ、AI応答の遅延を最小限に抑えられます。\n\nただし、GPU間の通信（PCIe帯域）やCPU・RAMの共有はボトルネックになり得ます。VRゲームはCPUとRAMを大量に消費するため、AIモデルがメモリ不足で動作不安定になるリスクがあります。特に、両者が同時に高負荷状態にある場合の安定性や、VR中の音声入力からAIへの質問転送時のレイテンシは、まだ実測されていない未知の領域です。\n\n運用方針としては、VRプレイ中はAIを軽量なローカルモデルに限定し、背景処理としてGPU2で稼働させることを推奨します。また、VRの描画設定を調整してCPU/RAMへの負荷を分散させ、実測データに基づきGPU間のデータ転送効率を最適化する必要があります。まずは短時間の同時利用テストを行い、具体的な性能限界を把握することが重要です。"
+      }
+    ]
+  },
+  "rana-thinking": {
+    "completed": true,
+    "error": null,
+    "guard_stop": null,
+    "load_seconds": 7.54700000000048,
+    "fixture_sha256": "4380a93b373fd817683ae78ddaf432bbdf0e32982464bc4081cefd8110a9a922",
+    "scored_total": 4,
+    "scored_passed": 4,
+    "content_passed": 4,
+    "format_only_failures": [],
+    "failures": [],
+    "baseline": {
+      "samples": 13,
+      "host_mean_percent": 4.6692307692307695,
+      "owned_mean_percent_of_pc": 0.0,
+      "available_ram_min_gib": 24.671768188476562,
+      "available_ram_median_gib": 24.677982330322266,
+      "owned_rss_peak_gib": 0.0,
+      "owned_private_peak_gib": 0.0,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 0.907501220703125,
+          "used_median_gib": 0.901275634765625,
+          "free_min_gib": 11.032928466796875,
+          "utilization_mean_percent": 1,
+          "utilization_peak_percent": 1,
+          "power_mean_w": 7.580230769230769,
+          "power_peak_w": 8.657,
+          "temperature_peak_c": 36.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 5837.615384615385,
+          "pcie_tx_mean_kb_s": 4271.153846153846
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 0.1475830078125,
+          "used_median_gib": 0.1475830078125,
+          "free_min_gib": 31.8524169921875,
+          "utilization_mean_percent": 0,
+          "utilization_peak_percent": 0,
+          "power_mean_w": 24.64123076923077,
+          "power_peak_w": 24.644,
+          "temperature_peak_c": 31.0,
+          "hbm_temperature_peak_c": 31,
+          "pcie_rx_mean_kb_s": 93.46153846153847,
+          "pcie_tx_mean_kb_s": 70.92307692307692
+        }
+      }
+    },
+    "loaded_idle": {
+      "samples": 8,
+      "host_mean_percent": 3.0125,
+      "owned_mean_percent_of_pc": 0.3046875,
+      "available_ram_min_gib": 21.756885528564453,
+      "available_ram_median_gib": 21.866191864013672,
+      "owned_rss_peak_gib": 2.791309356689453,
+      "owned_private_peak_gib": 3.9892044067382812,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 0.901641845703125,
+          "used_median_gib": 0.90155029296875,
+          "free_min_gib": 11.038787841796875,
+          "utilization_mean_percent": 1,
+          "utilization_peak_percent": 1,
+          "power_mean_w": 7.3175,
+          "power_peak_w": 7.832,
+          "temperature_peak_c": 36.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 4994.375,
+          "pcie_tx_mean_kb_s": 4371.5
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 21.02508544921875,
+          "used_median_gib": 21.02508544921875,
+          "free_min_gib": 10.97491455078125,
+          "utilization_mean_percent": 3.375,
+          "utilization_peak_percent": 27,
+          "power_mean_w": 39.114125,
+          "power_peak_w": 42.722,
+          "temperature_peak_c": 37.0,
+          "hbm_temperature_peak_c": 35,
+          "pcie_rx_mean_kb_s": 54.5,
+          "pcie_tx_mean_kb_s": 0.0
+        }
+      }
+    },
+    "active": {
+      "samples": 39,
+      "host_mean_percent": 7.994871794871795,
+      "owned_mean_percent_of_pc": 5.559294871794872,
+      "available_ram_min_gib": 21.614551544189453,
+      "available_ram_median_gib": 21.631725311279297,
+      "owned_rss_peak_gib": 3.0188941955566406,
+      "owned_private_peak_gib": 4.2236785888671875,
+      "gpus": {
+        "0": {
+          "name": "NVIDIA GeForce RTX 5070",
+          "used_peak_gib": 0.902557373046875,
+          "used_median_gib": 0.902008056640625,
+          "free_min_gib": 11.037872314453125,
+          "utilization_mean_percent": 1.0512820512820513,
+          "utilization_peak_percent": 2,
+          "power_mean_w": 9.655641025641026,
+          "power_peak_w": 10.565,
+          "temperature_peak_c": 36.0,
+          "hbm_temperature_peak_c": 0,
+          "pcie_rx_mean_kb_s": 5259.179487179487,
+          "pcie_tx_mean_kb_s": 5291.948717948718
+        },
+        "1": {
+          "name": "Tesla V100-PCIE-32GB",
+          "used_peak_gib": 21.748046875,
+          "used_median_gib": 21.748046875,
+          "free_min_gib": 10.251953125,
+          "utilization_mean_percent": 96.07692307692308,
+          "utilization_peak_percent": 100,
+          "power_mean_w": 212.0026923076923,
+          "power_peak_w": 246.574,
+          "temperature_peak_c": 56.0,
+          "hbm_temperature_peak_c": 62,
+          "pcie_rx_mean_kb_s": 58912.53846153846,
+          "pcie_tx_mean_kb_s": 178498.87179487178
+        }
+      }
+    },
+    "speed_resources": {
+      "samples": 0,
+      "host_mean_percent": null,
+      "owned_mean_percent_of_pc": null
+    },
+    "all_phases_min_available_ram_gib": 21.60736083984375,
+    "all_phases_peak_core_c": 56.0,
+    "all_phases_peak_hbm_c": 62,
+    "cooling_stale_samples": 0,
+    "speed": {
+      "japanese": {
+        "n": 0,
+        "decode_tps_median": null,
+        "ttft_s_median": null,
+        "total_s_median": null,
+        "tokens": [],
+        "finishes": [],
+        "characters_per_second_median": null,
+        "host_disk_read_median_gib": null,
+        "reused_tokens": [],
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "python": {
+        "n": 0,
+        "decode_tps_median": null,
+        "ttft_s_median": null,
+        "total_s_median": null,
+        "tokens": [],
+        "finishes": [],
+        "characters_per_second_median": null,
+        "host_disk_read_median_gib": null,
+        "reused_tokens": [],
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      }
+    },
+    "speed_mixed_decode_tps_median": null,
+    "speed_mixed_ttft_s_median": null,
+    "speed_disk_read_median_gib": null,
+    "quality_elapsed_total_s": 24.283,
+    "quality_by_category": {
+      "extraction": {
+        "passed": 1,
+        "total": 1
+      },
+      "logic": {
+        "passed": 1,
+        "total": 1
+      },
+      "numeric": {
+        "passed": 2,
+        "total": 2
+      }
+    },
+    "long": [],
+    "review": []
+  },
+  "matched_prompts": true,
+  "matched_fixture": true
+}

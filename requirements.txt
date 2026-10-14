@@ -1,0 +1,3 @@
+# Bootstrap re-executes in Strata's pinned .venv. These are for offline tests only.
+psutil==7.2.2
+requests==2.34.2

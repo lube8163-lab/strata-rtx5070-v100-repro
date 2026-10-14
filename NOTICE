@@ -1,0 +1,10 @@
+This repository contains reproduction helpers, fixtures and curated measurements.
+Strata is downloaded from Niko1221/Strata at the commit in models.lock.json;
+its source is used without modification and retains its upstream MIT license.
+Strata copyright: (c) 2026 Niko1221 and the Strata contributors.
+
+llama.cpp binaries and NVIDIA Python runtime wheels are downloaded from their
+upstream release/package distributions, which retain their own licenses.
+No engine binaries, driver packages or model weights are included here.
+The repository's MIT license applies to these reproduction helpers. Model files
+remain governed by the licenses at their linked distribution repositories.

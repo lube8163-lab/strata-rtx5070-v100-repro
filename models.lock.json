@@ -1,0 +1,83 @@
+{
+  "strata": {
+    "repository": "https://github.com/Niko1221/Strata.git",
+    "commit": "296b59d2f73c8f04a805df29c2fa97655adace78",
+    "version": "0.1.44.1",
+    "engine": {
+      "filename": "strata-windows-x64-cuda12.zip",
+      "url": "https://github.com/Niko1221/Strata/releases/download/v0.1.44.1/strata-windows-x64-cuda12.zip",
+      "size": 225716859,
+      "sha256": "e14e0eb6569facda3c7aad46eef80c7bc1a1aa25ae3c4f81f5d3fb8200709a40"
+    }
+  },
+  "flash": {
+    "repository": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+    "revision": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
+    "files": [
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+        "size": 47039860096,
+        "sha256": "219ea929900dfa9ef091f3aa473fdba6874b65fcb36526d7d851ac9e95856d15",
+        "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/resolve/ed59f92082b1e93c0e96d60a8b11aab089b52f09/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf"
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+        "size": 28800138432,
+        "sha256": "316b46f3a2dbd68c900f43136ab9449f9dcc3725dfd8c794847c204bc161e113",
+        "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/resolve/ed59f92082b1e93c0e96d60a8b11aab089b52f09/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf"
+      }
+    ]
+  },
+  "rana": {
+    "repository": "preemware/Qwen3.8-27B-RANA-abliterated-GGUF",
+    "revision": "b0e985a2bff471d5fdcf843148b07da79a75ee02",
+    "files": [
+      {
+        "filename": "Qwen3.8-27B-RANA-abliterated-Q4_K_M.gguf",
+        "size": 16547400832,
+        "sha256": "a4ee9f8a06ad81f1be12db076a1d12318d3b3afd489cc99be9fab2cf3a70ada7",
+        "url": "https://huggingface.co/preemware/Qwen3.8-27B-RANA-abliterated-GGUF/resolve/b0e985a2bff471d5fdcf843148b07da79a75ee02/Qwen3.8-27B-RANA-abliterated-Q4_K_M.gguf"
+      },
+      {
+        "filename": "mtp-Qwen3.8-27B-RANA-abliterated-Q8_0.gguf",
+        "size": 3164007232,
+        "sha256": "972e102b30f5dab100e625566c4d18f043ff145f917e2a84a138867eecdec970",
+        "url": "https://huggingface.co/preemware/Qwen3.8-27B-RANA-abliterated-GGUF/resolve/b0e985a2bff471d5fdcf843148b07da79a75ee02/mtp-Qwen3.8-27B-RANA-abliterated-Q8_0.gguf"
+      },
+      {
+        "filename": "mmproj-Qwen3.8-27B-RANA-abliterated-F16.gguf",
+        "size": 927607328,
+        "sha256": "aa995ddf715e6f7e818f90a5b2c64daa57991286317437af44f1b5c52cac56ac",
+        "url": "https://huggingface.co/preemware/Qwen3.8-27B-RANA-abliterated-GGUF/resolve/b0e985a2bff471d5fdcf843148b07da79a75ee02/mmproj-Qwen3.8-27B-RANA-abliterated-F16.gguf"
+      }
+    ]
+  },
+  "llama": {
+    "release": "b10964",
+    "stable_release": "v0.4.1",
+    "assets": [
+      {
+        "name": "llama-b10964-bin-win-cpu-x64.zip",
+        "size": 18427629,
+        "sha256": "917f39c076402c421224824607397af20f53625a60defc20e8dd22446bf4c5d7",
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b10964/llama-b10964-bin-win-cpu-x64.zip"
+      },
+      {
+        "name": "llama-b10964-bin-win-cuda-12.4-x64.zip",
+        "size": 254067651,
+        "sha256": "264f20d7ee3860aecca9ec12418357a9f3e80349a2b186f66c63859ded1a9593",
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b10964/llama-b10964-bin-win-cuda-12.4-x64.zip"
+      },
+      {
+        "name": "cudart-llama-bin-win-cuda-12.4-x64.zip",
+        "size": 391443627,
+        "sha256": "8c79a9b226de4b3cacfd1f83d24f962d0773be79f1e7b75c6af4ded7e32ae1d6",
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b10964/cudart-llama-bin-win-cuda-12.4-x64.zip"
+      }
+    ]
+  },
+  "cuda12": {
+    "cublas": "nvidia-cublas-cu12==12.9.1.4",
+    "runtime": "nvidia-cuda-runtime-cu12==12.9.79"
+  }
+}

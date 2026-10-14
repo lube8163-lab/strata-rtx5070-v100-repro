@@ -1,0 +1,238 @@
+{
+  "date": "2026-10-14",
+  "scope": "Portable repository wrapper; existing verified model assets; fresh full redownload and another PC were not tested",
+  "offline_tests_passed": 12,
+  "smoke_both_engines": true,
+  "runs": {
+    "rana": {
+      "completed": true,
+      "guard_stop": null,
+      "request_count": 35,
+      "main_tasks_passed": 10,
+      "main_tasks_total": 24,
+      "speed": {
+        "japanese": {
+          "n": 3,
+          "decode_tps_median": 41.10263376005927,
+          "ttft_s_median": 0.485,
+          "total_s_median": 6.675,
+          "tokens": [
+            256,
+            256,
+            256
+          ],
+          "finishes": [
+            "length",
+            "length",
+            "length"
+          ],
+          "characters_per_second_median": 70.25547445255475,
+          "host_disk_read_median_gib": 0.009712696075439453,
+          "reused_tokens": [
+            0,
+            0,
+            0
+          ],
+          "drafts_offered": 1024,
+          "drafts_accepted": 421
+        },
+        "python": {
+          "n": 3,
+          "decode_tps_median": 63.014977548134176,
+          "ttft_s_median": 0.299,
+          "total_s_median": 4.34,
+          "tokens": [
+            256,
+            256,
+            256
+          ],
+          "finishes": [
+            "length",
+            "length",
+            "length"
+          ],
+          "characters_per_second_median": 244.00921658986175,
+          "host_disk_read_median_gib": 0.0003814697265625,
+          "reused_tokens": [
+            0,
+            0,
+            0
+          ],
+          "drafts_offered": 669,
+          "drafts_accepted": 541
+        }
+      },
+      "long": [
+        {
+          "name": "needle-4096",
+          "prompt_tokens": 3908,
+          "read_tokens": 3908,
+          "reused_tokens": 0,
+          "prompt_tps": 718.0469563757075,
+          "ttft_s": 5.447,
+          "total_s": 5.563,
+          "passed": true,
+          "text": "EMBER-2746",
+          "host_disk_read_gib": 0.000213623046875
+        },
+        {
+          "name": "needle-16384",
+          "prompt_tokens": 16183,
+          "read_tokens": 16183,
+          "reused_tokens": 0,
+          "prompt_tps": 678.0011522207062,
+          "ttft_s": 23.893,
+          "total_s": 24.016,
+          "passed": true,
+          "text": "EMBER-2746",
+          "host_disk_read_gib": 0.0013790130615234375
+        }
+      ],
+      "fixture_sha256": "4380a93b373fd817683ae78ddaf432bbdf0e32982464bc4081cefd8110a9a922"
+    },
+    "rana-thinking": {
+      "completed": true,
+      "guard_stop": null,
+      "request_count": 5,
+      "main_tasks_passed": 4,
+      "main_tasks_total": 4,
+      "speed": {
+        "japanese": {
+          "n": 0,
+          "decode_tps_median": null,
+          "ttft_s_median": null,
+          "total_s_median": null,
+          "tokens": [],
+          "finishes": [],
+          "characters_per_second_median": null,
+          "host_disk_read_median_gib": null,
+          "reused_tokens": [],
+          "drafts_offered": 0,
+          "drafts_accepted": 0
+        },
+        "python": {
+          "n": 0,
+          "decode_tps_median": null,
+          "ttft_s_median": null,
+          "total_s_median": null,
+          "tokens": [],
+          "finishes": [],
+          "characters_per_second_median": null,
+          "host_disk_read_median_gib": null,
+          "reused_tokens": [],
+          "drafts_offered": 0,
+          "drafts_accepted": 0
+        }
+      },
+      "long": [],
+      "fixture_sha256": "4380a93b373fd817683ae78ddaf432bbdf0e32982464bc4081cefd8110a9a922"
+    },
+    "flash": {
+      "completed": true,
+      "guard_stop": null,
+      "request_count": 39,
+      "main_tasks_passed": 14,
+      "main_tasks_total": 24,
+      "speed": {
+        "japanese": {
+          "n": 3,
+          "decode_tps_median": 57.5,
+          "ttft_s_median": 0.829,
+          "total_s_median": 5.34,
+          "tokens": [
+            256,
+            256,
+            256
+          ],
+          "finishes": [
+            "length",
+            "length",
+            "length"
+          ],
+          "characters_per_second_median": 92.32209737827715,
+          "host_disk_read_median_gib": 2.8916244506835938,
+          "reused_tokens": [
+            0,
+            0,
+            0
+          ],
+          "drafts_offered": 580,
+          "drafts_accepted": 357
+        },
+        "python": {
+          "n": 3,
+          "decode_tps_median": 70.1,
+          "ttft_s_median": 0.662,
+          "total_s_median": 4.299,
+          "tokens": [
+            256,
+            256,
+            256
+          ],
+          "finishes": [
+            "length",
+            "length",
+            "length"
+          ],
+          "characters_per_second_median": 249.63609898107714,
+          "host_disk_read_median_gib": 2.7958641052246094,
+          "reused_tokens": [
+            0,
+            0,
+            0
+          ],
+          "drafts_offered": 666,
+          "drafts_accepted": 524
+        }
+      },
+      "long": [
+        {
+          "name": "needle-4096",
+          "prompt_tokens": 3908,
+          "read_tokens": 3908,
+          "reused_tokens": 0,
+          "prompt_tps": 405.9,
+          "ttft_s": 9.651,
+          "total_s": 9.831,
+          "passed": true,
+          "text": "EMBER-2746",
+          "host_disk_read_gib": 21.897083282470703
+        },
+        {
+          "name": "needle-16384",
+          "prompt_tokens": 16183,
+          "read_tokens": 16183,
+          "reused_tokens": 0,
+          "prompt_tps": 427.0,
+          "ttft_s": 37.923,
+          "total_s": 38.066,
+          "passed": true,
+          "text": "EMBER-2746",
+          "host_disk_read_gib": 93.57969236373901
+        }
+      ],
+      "fixture_sha256": "4380a93b373fd817683ae78ddaf432bbdf0e32982464bc4081cefd8110a9a922",
+      "thinking_diagnostic": {
+        "passed": 4,
+        "total": 4
+      }
+    }
+  },
+  "source_files_sha256": {
+    "repro.py": "1f2eeb7feba0ed530ba5c672bce375d325a5d74287d2d9981b09b6ef90411817",
+    "reprolib/__init__.py": "82bcf632b9744d45922ca965c0e0fe655181724eceb187415fa12fad032ede62",
+    "reprolib/benchmark.py": "6dc564a535d8c6c4c96739da8bbc5f37327462bd12119e94d6ee45ce1e3f492e",
+    "reprolib/bootstrap.py": "fb1adcc20a2a6c09f65e841c37b23d80d8295b3cfd3d9ff795a2f33527667914",
+    "reprolib/config.py": "f49207b81c97606909590020bcdee52c4520258bb3b6eb56aec67fa8e89f79ce",
+    "reprolib/download.py": "1e1a183cf23e521da443aa02201c4f82444e955f0c3331ca5bb4489092e8fc89",
+    "reprolib/evaluation.py": "6e32e5785a871ce6632440d77a4cb113dd78c587b31d7a187555d6f7c2a06c27",
+    "reprolib/runtime.py": "ecdc309fa2b48199faaf8edcbb4e86f039504779d72179d8c4b568ba9258bb71",
+    "reprolib/summarize.py": "8de8f3c3dbdedf1aeeefd9ef793f5087b89909c784d0911ee07c21e3ec66a8b5",
+    "reprolib/telemetry.py": "98cb8ee87e98a6347f26cff69cbe62ec5bfa310e7cc5fe3b52ee7722fcc4fd3d",
+    "reprolib/upstream_setup.py": "5c58885538bd2d54b5bd053e5c64558d61482ef113d5fc351a81ace6b5adb940"
+  },
+  "same_prompts": true,
+  "same_fixture": true,
+  "fixture_file_hash": "4380a93b373fd817683ae78ddaf432bbdf0e32982464bc4081cefd8110a9a922",
+  "source_hash_encoding": "UTF8 with LF; fixed input fixtures retain original CRLF bytes"
+}

@@ -1,0 +1,348 @@
+[
+  {
+    "name": "5070-cuda12",
+    "ready": true,
+    "completed": true,
+    "error": null,
+    "guard_stop": null,
+    "min_available_ram_all_phases_gib": 9.09,
+    "cooling_stale_samples": 147,
+    "short_requests": 6,
+    "short_decode_tps_median": 19.4,
+    "short_ttft_s_median": 2.537,
+    "japanese_decode_tps_median": 23.9,
+    "code_decode_tps_median": 14.9,
+    "math_checks": [
+      true,
+      true,
+      true
+    ],
+    "short_host_disk_reads_gib_median": 22.403,
+    "long_prompts": [],
+    "min_available_ram_gib": 9.09,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 5070",
+        "max_temperature_c": 47.0,
+        "max_memory_temperature_c": null,
+        "max_memory_used_gib": 10.92,
+        "max_utilization_percent": 100
+      },
+      {
+        "name": "Tesla V100-PCIE-32GB",
+        "max_temperature_c": 31.0,
+        "max_memory_temperature_c": 30,
+        "max_memory_used_gib": 0.15,
+        "max_utilization_percent": 0
+      }
+    ]
+  },
+  {
+    "name": "5070-cuda13",
+    "ready": true,
+    "completed": true,
+    "error": null,
+    "guard_stop": null,
+    "min_available_ram_all_phases_gib": 9.05,
+    "cooling_stale_samples": 78,
+    "short_requests": 6,
+    "short_decode_tps_median": 20.15,
+    "short_ttft_s_median": 2.423,
+    "japanese_decode_tps_median": 25.1,
+    "code_decode_tps_median": 15.6,
+    "math_checks": [
+      true,
+      true,
+      true
+    ],
+    "short_host_disk_reads_gib_median": 21.996,
+    "long_prompts": [],
+    "min_available_ram_gib": 9.05,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 5070",
+        "max_temperature_c": 49.0,
+        "max_memory_temperature_c": null,
+        "max_memory_used_gib": 10.96,
+        "max_utilization_percent": 100
+      },
+      {
+        "name": "Tesla V100-PCIE-32GB",
+        "max_temperature_c": 31.0,
+        "max_memory_temperature_c": 30,
+        "max_memory_used_gib": 0.15,
+        "max_utilization_percent": 0
+      }
+    ]
+  },
+  {
+    "name": "helper",
+    "ready": false,
+    "completed": false,
+    "error": "Server did not become ready within 900s; see engine and server logs",
+    "guard_stop": null,
+    "min_available_ram_all_phases_gib": 24.5,
+    "cooling_stale_samples": 0,
+    "short_requests": 0,
+    "short_decode_tps_median": null,
+    "short_ttft_s_median": null,
+    "japanese_decode_tps_median": null,
+    "code_decode_tps_median": null,
+    "math_checks": [],
+    "short_host_disk_reads_gib_median": null,
+    "long_prompts": [],
+    "min_available_ram_gib": null,
+    "gpus": []
+  },
+  {
+    "name": "helper-mmap",
+    "ready": false,
+    "completed": false,
+    "error": "Manually aborted the verified owned process tree: mmap flag was missing; upstream allocated a 39.97 GiB RAM arena on this 31.1 GiB host",
+    "guard_stop": null,
+    "min_available_ram_all_phases_gib": 0.0,
+    "cooling_stale_samples": 53,
+    "short_requests": 0,
+    "short_decode_tps_median": null,
+    "short_ttft_s_median": null,
+    "japanese_decode_tps_median": null,
+    "code_decode_tps_median": null,
+    "math_checks": [],
+    "short_host_disk_reads_gib_median": null,
+    "long_prompts": [],
+    "min_available_ram_gib": null,
+    "gpus": []
+  },
+  {
+    "name": "helper-mmap-fixed",
+    "ready": false,
+    "completed": false,
+    "error": "Server exited before readiness; see engine and server logs",
+    "guard_stop": "Available system RAM stayed below 2 GiB for 10 seconds",
+    "min_available_ram_all_phases_gib": 0.6,
+    "cooling_stale_samples": 0,
+    "short_requests": 0,
+    "short_decode_tps_median": null,
+    "short_ttft_s_median": null,
+    "japanese_decode_tps_median": null,
+    "code_decode_tps_median": null,
+    "math_checks": [],
+    "short_host_disk_reads_gib_median": null,
+    "long_prompts": [],
+    "min_available_ram_gib": null,
+    "gpus": []
+  },
+  {
+    "name": "peer",
+    "ready": true,
+    "completed": true,
+    "error": null,
+    "guard_stop": null,
+    "min_available_ram_all_phases_gib": 8.18,
+    "cooling_stale_samples": 0,
+    "short_requests": 6,
+    "short_decode_tps_median": 64.15,
+    "short_ttft_s_median": 0.521,
+    "japanese_decode_tps_median": 61.4,
+    "code_decode_tps_median": 66.9,
+    "math_checks": [
+      true,
+      true,
+      true
+    ],
+    "short_host_disk_reads_gib_median": 2.377,
+    "long_prompts": [],
+    "min_available_ram_gib": 8.18,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 5070",
+        "max_temperature_c": 45.0,
+        "max_memory_temperature_c": null,
+        "max_memory_used_gib": 10.9,
+        "max_utilization_percent": 100
+      },
+      {
+        "name": "Tesla V100-PCIE-32GB",
+        "max_temperature_c": 35.0,
+        "max_memory_temperature_c": 34,
+        "max_memory_used_gib": 31.18,
+        "max_utilization_percent": 37
+      }
+    ]
+  },
+  {
+    "name": "peer-long",
+    "ready": true,
+    "completed": false,
+    "error": "128K prompt interrupted after the successful 64K test to compare V100 prompt-compute sharing",
+    "guard_stop": null,
+    "min_available_ram_all_phases_gib": 8.3,
+    "cooling_stale_samples": 0,
+    "short_requests": 0,
+    "short_decode_tps_median": null,
+    "short_ttft_s_median": null,
+    "japanese_decode_tps_median": null,
+    "code_decode_tps_median": null,
+    "math_checks": [],
+    "short_host_disk_reads_gib_median": null,
+    "long_prompts": [
+      {
+        "label": "needle-4096",
+        "ok": true,
+        "prompt_tokens": 3896,
+        "body_token_count": 3885,
+        "reused_tokens": 0,
+        "prompt_tps": 111.6,
+        "ttft_s": 34.932,
+        "decode_tps": 15.1,
+        "expected_found": true
+      },
+      {
+        "label": "needle-65000",
+        "ok": true,
+        "prompt_tokens": 64792,
+        "body_token_count": 64781,
+        "reused_tokens": 0,
+        "prompt_tps": 106.2,
+        "ttft_s": 610.183,
+        "decode_tps": 26.9,
+        "expected_found": true
+      }
+    ],
+    "min_available_ram_gib": 8.3,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 5070",
+        "max_temperature_c": 46.0,
+        "max_memory_temperature_c": null,
+        "max_memory_used_gib": 11.04,
+        "max_utilization_percent": 100
+      },
+      {
+        "name": "Tesla V100-PCIE-32GB",
+        "max_temperature_c": 33.0,
+        "max_memory_temperature_c": 32,
+        "max_memory_used_gib": 31.17,
+        "max_utilization_percent": 20
+      }
+    ]
+  },
+  {
+    "name": "peer-v100-long",
+    "ready": true,
+    "completed": true,
+    "error": null,
+    "guard_stop": null,
+    "min_available_ram_all_phases_gib": 7.73,
+    "cooling_stale_samples": 0,
+    "short_requests": 6,
+    "short_decode_tps_median": 50.0,
+    "short_ttft_s_median": 0.673,
+    "japanese_decode_tps_median": 50.5,
+    "code_decode_tps_median": 50.0,
+    "math_checks": [
+      true,
+      true,
+      true
+    ],
+    "short_host_disk_reads_gib_median": 3.018,
+    "long_prompts": [
+      {
+        "label": "needle-4096",
+        "ok": true,
+        "prompt_tokens": 3900,
+        "body_token_count": 3889,
+        "reused_tokens": 0,
+        "prompt_tps": 336.0,
+        "ttft_s": 11.653,
+        "decode_tps": 33.6,
+        "expected_found": true
+      },
+      {
+        "label": "needle-65000",
+        "ok": true,
+        "prompt_tokens": 64796,
+        "body_token_count": 64785,
+        "reused_tokens": 0,
+        "prompt_tps": 346.1,
+        "ttft_s": 187.257,
+        "decode_tps": 45.5,
+        "expected_found": true
+      },
+      {
+        "label": "needle-129000",
+        "ok": true,
+        "prompt_tokens": 128808,
+        "body_token_count": 128797,
+        "reused_tokens": 0,
+        "prompt_tps": 332.2,
+        "ttft_s": 387.862,
+        "decode_tps": 29.8,
+        "expected_found": true
+      }
+    ],
+    "min_available_ram_gib": 7.73,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 5070",
+        "max_temperature_c": 52.0,
+        "max_memory_temperature_c": null,
+        "max_memory_used_gib": 11.09,
+        "max_utilization_percent": 100
+      },
+      {
+        "name": "Tesla V100-PCIE-32GB",
+        "max_temperature_c": 38.0,
+        "max_memory_temperature_c": 36,
+        "max_memory_used_gib": 31.47,
+        "max_utilization_percent": 44
+      }
+    ]
+  },
+  {
+    "name": "peer-v100-prefill-probe",
+    "ready": true,
+    "completed": true,
+    "error": null,
+    "guard_stop": null,
+    "min_available_ram_all_phases_gib": 8.57,
+    "cooling_stale_samples": 0,
+    "short_requests": 0,
+    "short_decode_tps_median": null,
+    "short_ttft_s_median": null,
+    "japanese_decode_tps_median": null,
+    "code_decode_tps_median": null,
+    "math_checks": [],
+    "short_host_disk_reads_gib_median": null,
+    "long_prompts": [
+      {
+        "label": "needle-4096",
+        "ok": true,
+        "prompt_tokens": 3904,
+        "body_token_count": 3893,
+        "reused_tokens": 0,
+        "prompt_tps": 347.0,
+        "ttft_s": 11.284,
+        "decode_tps": 16.0,
+        "expected_found": true
+      }
+    ],
+    "min_available_ram_gib": 8.57,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 5070",
+        "max_temperature_c": 44.0,
+        "max_memory_temperature_c": null,
+        "max_memory_used_gib": 11.0,
+        "max_utilization_percent": 91
+      },
+      {
+        "name": "Tesla V100-PCIE-32GB",
+        "max_temperature_c": 37.0,
+        "max_memory_temperature_c": 34,
+        "max_memory_used_gib": 31.47,
+        "max_utilization_percent": 47
+      }
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "reviewer": "Codex manual review of the preserved Japanese replies",
+  "scope": "Two prompts per model; qualitative observations, no general language-quality score",
+  "results": {
+    "rana": {
+      "japanese_explanation": {
+        "characters": 579,
+        "requested_range": [
+          400,
+          600
+        ],
+        "length_passed": true,
+        "readability": "Readable connected Japanese with a clear VRAM/RAM/SSD comparison.",
+        "coverage": "Covers storage roles and other PC uses; CPU/RAM contention is not explained.",
+        "calibration": "Avoids invented speed ratios, but the final stability recommendation is too general.",
+        "technical_observation": "CPU/RAM offload can reduce VRAM occupation, but cannot by itself establish better stability or concurrent-app performance."
+      },
+      "japanese_plan": {
+        "characters": 526,
+        "requested_range": [
+          300,
+          500
+        ],
+        "length_passed": false,
+        "readability": "Readable with concrete proposed measurements.",
+        "coverage": "Assigns VR and AI separate GPUs and recognizes shared CPU/RAM.",
+        "calibration": "Names concrete unmeasured scenarios, but makes a broad recommendation to use NVLink/PCIe4/5 without checking applicability to this PC.",
+        "technical_observation": "The actual V100 runs Gen3x4, and the measured Strata path uses host staging rather than an assumed NVLink configuration."
+      }
+    },
+    "flash": {
+      "japanese_explanation": {
+        "characters": 565,
+        "requested_range": [
+          400,
+          600
+        ],
+        "length_passed": true,
+        "readability": "Readable connected Japanese and within the requested length.",
+        "coverage": "Covers VRAM/RAM/SSD and shared GPU applications.",
+        "calibration": "Avoids invented speed ratios but overgeneralizes that offload reduces GPU load.",
+        "technical_observation": "Offloaded models can still keep the main GPU busy; this run measured the 5070 near93% utilization. Offload alone does not establish spare GPU compute."
+      },
+      "japanese_plan": {
+        "characters": 476,
+        "requested_range": [
+          300,
+          500
+        ],
+        "length_passed": true,
+        "readability": "Readable and within the requested length.",
+        "coverage": "Separate GPU roles, shared CPU/RAM, and unmeasured simultaneous loads are all mentioned.",
+        "calibration": "Later paragraphs call for measurement, but the opening claim that separation prevents frame-rate drops is stronger than the evidence.",
+        "technical_observation": "Role separation leaves GPU capacity available but does not guarantee VR frame times because the host resources remain shared."
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "tasks": [
+    {
+      "name": "library_hours",
+      "category": "numeric",
+      "prompt": "図書館は平日9時〜18時、土曜10時〜15時、日曜休館です。今週は水曜が祝日で休館し、金曜は2時間延長します。今週の総開館時間を {\"hours\":整数} のJSONだけで返してください。",
+      "expected": {
+        "hours": 43
+      },
+      "code": null,
+      "max_tokens": 2048
+    },
+    {
+      "name": "invoice",
+      "category": "numeric",
+      "prompt": "商品12800円を15%引きにした後、その商品代に10%の税を加え、最後に送料640円を加えます。請求額を {\"yen\":整数} のJSONだけで返してください。",
+      "expected": {
+        "yen": 12608
+      },
+      "code": null,
+      "max_tokens": 2048
+    },
+    {
+      "name": "latest_orders",
+      "category": "extraction",
+      "prompt": "同じIDは後の行で更新されます。最後の状態がpaidの注文だけを集計してください。\nA,1200,paid\nB,2400,paid\nA,1200,refunded\nC,1800,pending\nB,2200,paid\n{\"total\":整数,\"ids\":[ID]} のJSONだけを返し、idsは昇順にしてください。",
+      "expected": {
+        "total": 2200,
+        "ids": [
+          "B"
+        ]
+      },
+      "code": null,
+      "max_tokens": 2048
+    },
+    {
+      "name": "truth_teller",
+      "category": "logic",
+      "prompt": "Aは「Bは嘘つき」と言い、Bは「Aと私は同じ種類」と言いました。各人は常に真実を言う正直者か、常に嘘を言う嘘つきのどちらかです。 {\"A\":\"正直者または嘘つき\",\"B\":\"正直者または嘘つき\"} のJSONだけで返してください。",
+      "expected": {
+        "A": "正直者",
+        "B": "嘘つき"
+      },
+      "code": null,
+      "max_tokens": 2048
+    }
+  ],
+  "scope": "Adaptive diagnostic after preliminary thinking-off arithmetic failures; same four tasks for both models; maximum2048 tokens",
+  "created": "2026-10-14"
+}
