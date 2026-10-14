@@ -2,6 +2,8 @@
 
 [日本語](README.md)
 
+[Experiment write-up on Zenn (Japanese)](https://zenn.dev/lube8163/articles/87856ef9fffd66)
+
 A Windows reproduction kit for **Qwen3.8-Flash-Next IQ3_XXS on an RTX5070 12GB + V100 PCIe32GB with32GB system RAM**, plus a comparison against **Qwen3.8-27B RANA Q4_K_M running entirely on the V100**.
 
 The RTX runs the main engine. The V100 holds and computes additional experts using Strata's stock peer path. There is no patch to upstream Strata. The recipe pins its source commit, CUDA12.9 engine, model revisions and SHA256 hashes in [models.lock.json](models.lock.json).

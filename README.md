@@ -2,6 +2,8 @@
 
 [English](README.en.md)
 
+[Zenn実験記事：RTX 5070＋V100で大きなMoEを動かす](https://zenn.dev/lube8163/articles/87856ef9fffd66)
+
 **Windows・RTX 5070 12GB + V100 PCIe 32GB・RAM32GBで、Qwen3.8-Flash-Next IQ3_XXSを実行した実験の再現用リポジトリです。** 5070を主GPU、V100を追加エキスパートの保持・計算に使います。V100単体のQwen3.8 27B RANAとの比較測定もできます。
 
 Strata本体へのパッチはありません。固定コミットのStrata、CUDA12.9配布エンジン、モデルの固定revision/SHA256を使い、PCごとの保存先とGPU UUIDだけをローカルに設定します。モデル本体・ドライバー・個人用の冷却ソフトは同梱しません。
